@@ -3,16 +3,19 @@ import 'package:grade_tool/grade_tool.dart';
 
 void main() {
   final gradeNumber = GradeTool();
+  final map = {
+    95: 'A',
+    82: 'B',
+    78: 'C',
+    60: 'D',
+    59: 'F',
+  };
 
-  test('95 is an A', () {
-    expect('A', gradeNumber.convert(90));
-  });
-
-  test('82 is a B', () {
-    expect('B', gradeNumber.convert(82));
-  });
-
-  test('60 is a D', () {
-    expect('D', gradeNumber.convert(60));
-  });
+  for (int grade in map.keys) {
+    final result = map[grade];
+    test('$grade $result', () {
+      final actual = gradeNumber.convert(grade);
+      expect(result, actual);
+    });
+  }
 }
