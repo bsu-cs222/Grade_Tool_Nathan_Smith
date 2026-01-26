@@ -1,15 +1,17 @@
+enum Grade { A, B, C, D, F }
+
 class GradeTool {
-  String convert(int grade) {
-    if (grade >= 90) {
-      return 'A';
-    } else if (grade >= 80) {
-      return 'B';
-    } else if (grade >= 70) {
-      return 'C';
-    } else if (grade >= 60) {
-      return 'D';
+  Grade convert(double grade) {
+    if (grade >= 0.9) {
+      return Grade.A;
+    } else if (grade >= 0.8){
+      return Grade.B;
+    } else if (grade >= 0.7) {
+      return Grade.C;
+    } else if (grade >= 0.6) {
+      return Grade.D;
     } else {
-      return 'F';
+      return Grade.F;
     }
   }
 }

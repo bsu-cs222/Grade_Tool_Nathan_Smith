@@ -4,14 +4,14 @@ import 'package:grade_tool/grade_tool.dart';
 void main() {
   final gradeNumber = GradeTool();
   final map = {
-    95: 'A',
-    82: 'B',
-    78: 'C',
-    60: 'D',
-    59: 'F',
+    0.95: Grade.A,
+    0.82: Grade.B,
+    0.78: Grade.C,
+    0.60: Grade.D,
+    0.59: Grade.F,
   };
 
-  for (int grade in map.keys) {
+  for (double grade in map.keys) {
     final result = map[grade];
     test('$grade $result', () {
       final actual = gradeNumber.convert(grade);
