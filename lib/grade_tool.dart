@@ -1,7 +1,7 @@
 enum Grade { A, B, C, D, F }
 
 class GradeTool {
-  Grade convert(double grade) {
+  Grade gradeScale(double grade) {
     if (grade >= 0.9) {
       return Grade.A;
     } else if (grade >= 0.8){
@@ -12,6 +12,19 @@ class GradeTool {
       return Grade.D;
     } else {
       return Grade.F;
+    }
+  }
+}
+
+class GradeConverter {
+  static String convertToGrade(String input) {
+    double? numericGrade = double.tryParse(input);
+
+    if (numericGrade == null) {
+      return 'Enter a valid decimal number';
+    } else {
+      GradeTool letterGrade = GradeTool();
+      return 'Letter Grade: ${letterGrade.gradeScale(numericGrade).name}';
     }
   }
 }

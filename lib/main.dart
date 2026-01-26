@@ -35,15 +35,7 @@ class _GradeToolPageState extends State<GradeToolPage> {
 
   void _convertGrade() {
     setState(() {
-      String input = _gradeController.text;
-      double? numericGrade = double.tryParse(input);
-
-      if (numericGrade == null) {
-        _result = 'Enter a valid decimal number';
-      } else {
-        GradeTool letterGrade = GradeTool();
-        _result = 'Letter Grade: ${letterGrade.convert(numericGrade)}';
-      }
+      _result = GradeConverter.convertToGrade(_gradeController.text);
     });
   }
   @override
